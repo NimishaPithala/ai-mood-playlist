@@ -1,0 +1,15 @@
+# Node
+/node_modules
+/dist
+/.env
+/build
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+venv/
+.env
+
+# VSCode
+.vscode/
