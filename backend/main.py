@@ -5,6 +5,16 @@ from spotify_client import search_tracks_by_genre
 
 app = FastAPI(title= "AI Mood Playlist API")
 
+from fastapi.middleware.cors import CORSMiddleware
+
+# Allow your frontend to talk to backend
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or ["http://127.0.0.1:5500"] if you want only local HTML
+    allow_credentials=True,
+    allow_methods=["*"],   # allow POST, GET, OPTIONS etc.
+    allow_headers=["*"],   # allow Content-Type, Authorization etc.
+)
 
 #data models
 
@@ -59,3 +69,7 @@ def generate_playlist(req: MoodRequest):
         "genres": genres,
         "songs": songs
     }
+
+
+
+
